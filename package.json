@@ -1,0 +1,29 @@
+{
+  "name": "forkify",
+  "version": "1.0.0",
+  "description": "This is the starter code for project forkify",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StarcraftSu/forkify.git"
+  },
+  "keywords": [
+    "Modern",
+    "Js"
+  ],
+  "author": "Su",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StarcraftSu/forkify/issues"
+  },
+  "homepage": "https://github.com/StarcraftSu/forkify#readme",
+  "devDependencies": {
+    "webpack": "^4.6.0"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
