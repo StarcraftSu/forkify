@@ -1,5 +1,5 @@
-console.log('import module');
-export default 1234567890123;
+// console.log('import module');
+// export default 123;
 
 
 
@@ -110,3 +110,6 @@ export default 1234567890123;
 //       for(var key in man){
 //         console.log(man[key]);
 //       }
+
+
+
