@@ -24,3 +24,4 @@ export const removeLoader = () =>{
     const loader = document.querySelector(`.${DOMString.loader}`);
     loader.parentElement.removeChild(loader);
 }
+//test

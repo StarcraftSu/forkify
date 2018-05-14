@@ -7,9 +7,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/bundle.js'
     },
-    devServer: {
-        contentBase: './dist'
-    },
+    // devServer: {
+    //     contentBase: './dist'
+    // },
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',

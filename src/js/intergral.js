@@ -425,7 +425,7 @@
                 console.info(progress);
             },
             fail: function () {
-                alert("上传失败了！！");
+                alert("上传失败！！");
             }
         });
     };
