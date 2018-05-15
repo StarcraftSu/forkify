@@ -9,6 +9,7 @@ export const clearInput = () => {
 //clear the orginal result
 export const clearResults = ()=>{
     elements.searchResList.innerHTML = '';
+    elements.searchResPages.innerHTML = '';
 }
 //limit the length for each title of recipe, the exceeding words will be shorten as '...'
 const limitRecipeTitle = (title,limit = 17)=>{
@@ -49,30 +50,16 @@ const renderRecipe = recipe =>{
 
 const createButton = (page,type) => ` 
         <button class="btn-inline results__btn--${type}" data-goto=${type === 'prev'?page-1:page+1}>
+        <span>Page ${type === 'prev'?page-1:page+1}</span>
             <svg class="search__icon">
                 <use href="img/icons.svg#icon-triangle-${type==='prev'?'left':'right'}"></use>
             </svg>
-            <span>Page ${type === 'prev'?page-1:page+1}</span>
         </button>
-
-        <!--
-        <button class="btn-inline results__btn--prev">
-            <svg class="search__icon">
-                <use href="img/icons.svg#icon-triangle-left"></use>
-            </svg>
-            <span>Page 1</span>
-        </button>
-        <button class="btn-inline results__btn--next">
-            <span>Page 3</span>
-            <svg class="search__icon">
-                <use href="img/icons.svg#icon-triangle-right"></use>
-            </svg>
-        </button>
-        -->`;
+   `;
 
 const renderButtons = (page,numResult,resPerPage)=>{
     //total pages
-    const pages = Math.ceil(numResults/resPerpage);
+    const pages = Math.ceil(numResult/resPerPage);
 
     let button;
 
@@ -88,13 +75,19 @@ const renderButtons = (page,numResult,resPerPage)=>{
         //Button to go to previous page
        button =  createButton(page,'prev');
     }
+
+    elements.searchResPages.insertAdjacentHTML('afterbegin',button);
 };
 
 
 //deal with the result of an array,
 //which the ideal way to loop through it is to use forEach method
-export const renderResult = (recipes,page=1,resPerPage = 10) => {
+export const renderResult = (recipes,page=1,resPerPage= 10) => {
+    //render results of current page
     const start = (page-1)*resPerPage;
     const end = page*resPerPage;
     recipes.slice(start,end).forEach(el => renderRecipe(el));
+    //render pagination button
+    renderButtons(page,recipes.length,resPerPage);
 };
+
